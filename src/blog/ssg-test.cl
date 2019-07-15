@@ -16,5 +16,3 @@
 (defun open-blog (name) 
 	(print-file (concatenate 'string name ".blog"))
 	)
-(set-path "C:/Users/usuario/Desktop/cosas3.0/sorz/loni3/src/blog")
-(open-blog "210519")
