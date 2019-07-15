@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>loniart patterns</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+		*{box-sizing: border-box;}
+		body{overflow-x: hidden;}
+		.colors{
+			display: grid;
+			width:90vw;
+			place-content:start stretch;
+			grid:auto 6em / repeat(5,1fr);
+			grid-gap:.4em;
+		}
+		.ramp{
+			height: 6em;
+			width: 100%;
+			border:0.1em solid #422;
+			border-radius:0 0 1em 1em;
+			text-align: center;
+			overflow: hidden;
+		}
+		.ramp>div{
+			border-bottom:.1em solid #422;
+			height:80%;
+			width: 100%;
+			display:flex;
+			align-items: stretch;
+			justify-items: stretch;
+		}
+		.swatch{
+			flex: 1 0 1em;
+			transition: 0.1s
+		}
+		.swatch[small]{
+			flex:0 1 1em;
+		}
+		.ramp>label{
+			height:20%;
+			width: 100%
+		}
+	</style>
+	
+</head>
+<body class="flow">
+	<h2>colors used in loni site</h2>
+	<div class="colors" id="a">
+		<div class="ramp" id="c">
+			<div id="r">
+			</div>
+			<label>neutrals</label>
+		</div>
+	</div>
+	<script>
+		let grid = document.getElementById('a');
+		let proto = document.getElementById('c');
+		let ramps = [
+			{
+				ramp_name:"neutrals",
+				colors:["#422","#645","#877","#BBB","#DDD","#FFF"]
+			},{
+				ramp_name:"blues",
+				colors:["#05F","#2AF"]
+			},{
+				ramp_name:"yellows",
+				colors:["#FC3"]
+			},{
+				ramp_name:"reds",
+				colors:["#811","#C32","#D54"]
+			}];
+		for (let i = 0; i < ramps.length; i++) {
+			let new_element = proto.cloneNode(true);
+			let new_ramp = new_element.children[0];
+			let new_label = new_element.children[1];
+			for (let j = 0; j < ramps[i].colors.length; j++) {
+				let swatch = document.createElement('div');
+				swatch.setAttribute("class","swatch");
+				swatch.style="background-color:"+ramps[i].colors[j];
+				new_element.children[0].appendChild(swatch);
+			}
+			new_label.innerHTML = ramps[i].ramp_name;
+			{
+				//maps through the ramp's swatches,adds the small attribute to all swatches that do not match
+				let new_ramp = new_element.children[0]
+				new_ramp.addEventListener(
+				'mouseover',(ramp=>evt=>
+					Array.prototype.map.call(ramp.children,swatch=>
+											(swatch===evt.target)?(0):swatch.setAttribute("small","on"))
+							)(new_ramp)
+				)
+				new_ramp.addEventListener(
+					'mouseout',
+					(ramp=>evt=>Array.prototype.map.call(ramp.children,swatch=>
+																		swatch.removeAttribute("small"))
+					)(new_ramp)
+					)
+				new_ramp.addEventListener(
+					'click',(label=>evt=>(label.innerHTML=evt.target.style["background-color"]))(new_label)
+				)
+			}
+			grid.appendChild(new_element);
+		}
+		proto.remove();
+	</script>
+</body>
+</html>

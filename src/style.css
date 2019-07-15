@@ -1,0 +1,98 @@
+/*UTILS*/
+*{box-sizing: border-box;}
+
+.content-box{box-sizing: content-box;}
+.content-box *{box-sizing: content-box;}
+
+.center-text{text-align: center;}
+/*	pacing	*/
+.flow>*+*{
+	margin-top: 1.3em;
+}
+.row-flow>*+*{margin-left:1.3em;}
+/*	gridstuff	*/
+.grid	{	display:grid;			}
+/* i should find a way to turn these into attribute selectors instead of class selectors but any idea sounds like too much upkeep*/
+.length2{	grid-column-end: span 2	}
+.length3{	grid-column-end: span 3	}
+.length4{	grid-column-end: span 4	}
+
+
+/*STYLES*/
+/*the html element sets with wide strokes what the site should look like*/
+html{
+	font-family: sans-serif;
+	font-size:calc(1.9rem - .125vw);
+	background-color:#DDD;
+	color:#422;
+	line-height: 1.3em;
+}
+/*but the body element does the initial positioning*/
+body{
+	padding:1em 0 0;
+	margin: 0;
+}
+
+main{
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/*reason this doesnt use the flow classes is because it changes orientation from landscape to vertical, see the bottom of this code*/
+address{
+	display:flex;
+	flex-direction: row;
+}
+address>*+*{margin-left:1.3em;}
+
+a:link			{color: #05F}
+a:visited 		{color: #C32}
+a:hover,a:focus {color: #2AF}
+a:active 		{color: #FFF; background-color: #FC3;}
+
+a:focus{border-left: #2AF solid .2ch}
+
+img{
+	height: auto; width: 100%;
+	min-width: 7ch;
+}
+
+.gallery{
+	padding:0 4em;
+	 /* forgot how this works, but here's a post explaining it: 
+	 https://andy-bell.design/wrote/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/
+	 */
+	grid:auto-flow / repeat(auto-fit ,minmax(14ch,1fr));
+	justify-items: center; justify-content: center;
+	grid-gap: .5ch;
+	max-width: 98%;
+}
+.gallery a:focus{ border: 0; outline:0;}
+
+.gallery img:hover,.gallery a:focus>img { 
+	border-left: .5ch solid #2AF
+}
+
+
+footer{
+	margin-top: 1.2em;
+	padding:5ch 0;
+	background: 
+		linear-gradient(30deg,rgba(34, 170, 255,0.4) 0%, rgba(34, 170, 255,1) 40%) top / 100% scroll,
+		url("pattern.svg") top / 2.5em fixed,
+		#2AF;
+}
+
+footer > a:link,footer > a:visited{ color:#811;}
+footer > a:hover,footer > a:focus {	color:#FFF;}
+footer > a:focus{border-left-color: #FFF}
+
+@media (orientation: portrait){
+	address{ flex-direction: column; }
+	address>*+*{
+		margin:0;
+		margin-top: 1.3em;
+	}
+}

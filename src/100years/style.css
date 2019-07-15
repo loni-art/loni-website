@@ -1,0 +1,152 @@
+/*resets*/
+*{
+	box-sizing: border-box;
+	padding:0;margin:0;
+}
+
+img{
+	height: auto;
+	
+	width: 100%;
+	max-width:90vw;
+}
+/*utilities*/
+
+/* sets visual rhythm*/
+.flow > *+*{ margin-top: 1.5em; }
+.center{margin: 0 auto;}
+
+/*styling*/
+html{
+	overflow-x: hidden;
+
+	background-color: #111;
+	color:#EEE;
+
+	font-size: calc(1.6rem - .1vw);
+	font-weight:300;
+	font-family: 'Work Sans',sans-serif;
+	line-height: 1.5em;
+}
+
+body{
+	width: 80ch;
+	max-width: 96vw;
+
+	padding:2em 0;
+	margin:0 auto;
+	
+	text-align:center;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Roboto Slab',serif;
+	font-weight: 100
+}
+h3{ font-size:1.5rem; }
+
+a:link,a:hover,a:visited,a:active{color:#EEE;}
+
+nav a{
+	margin:0 1ch;
+	border: rgba(255,255,255,0.2) solid 0;
+	border-width: 0.25ch 0;
+
+	text-align: center;
+	font-size: 1.125rem;
+
+	transition:0.1s;
+}
+nav a:focus{border-width: 0.25ch;					}
+nav a:hover{background-color: rgba(255,255,255,0.2);}
+
+hr{border:rgba(255,255,255,0.2) solid 0.125ch;}
+
+.gallery{
+	padding: 0 5%;
+
+	display: grid;
+	grid:auto-flow/repeat(auto-fill,minmax(30ch,1fr));
+	grid-gap:5ch 1ch;
+
+	text-align: left;
+}
+.gallery div{
+	position: relative;
+
+	max-width: 100vw;
+	padding:0.5ch 1ch;
+	border-left:rgba(255,255,255,0.2) solid 0.5ch;
+}
+.gallery div p{
+	padding-left:inherit; 
+	border-left:inherit;
+}
+.gallery div time{
+	position:absolute;
+	right:0; bottom: 0;
+
+	padding:0.25ch 1ch;
+	border-right:rgba(255,255,255,0.2) solid 0.25ch;
+	
+	color:rgba(255,255,255,0.6);
+	
+	font-family: monospace;
+	font-size: 0.9rem;
+}
+
+.icon{
+	display: inline-block;
+	position:relative;
+}
+.icon:hover::after,.icon:focus::after{
+	position: absolute;
+	left:0;bottom:0;
+
+	width:20ch;
+
+	font-size:0.75rem;
+	content:attr(tooltip);
+
+	pointer-events: none;
+}
+.icon::before{
+	content:" "; /*needs content to not get optimized away by the html fairy*/
+	position: absolute;
+	top:0;left:0ch;
+
+	width:inherit; height:inherit; 
+
+	background-color: rgba(255,255,255,0.2);
+	
+	transform: scale(0) rotate(0deg);
+	transition: 0.3s ease-out;
+}
+.icon:hover::before,.icon:focus::before{
+	transform: scale(1) rotate(135deg);
+}
+
+
+.top{
+	float:right;
+
+	width:2.75ch; height:2.75ch; 
+	padding: .75ch;
+}
+.top img{
+	position: relative;
+
+	top:-0.75ch;
+}
+.top:hover::after,.top:focus::after{
+	content:"go to top";
+}
+
+.loni{	
+	width: 8ch; height: 8ch;
+	padding: 1ch;
+}
+.loni img{
+	filter:invert(100%) grayscale(100%);
+	opacity: 0.5;
+}

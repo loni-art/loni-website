@@ -1,0 +1,168 @@
+/* 
+	blog navigation component
+	dom structure:
+	.nav
+		div
+			span
+			a
+		div
+			span
+			a
+*/
+.navs{
+	display: flex;
+	width: 30em;
+	max-width: 90vw;
+	margin-bottom: 2em;
+
+	font-size: .9rem;
+	color:#877;
+}
+.navs>*{ flex: 1 0 0;}
+.navs div:last-child{ text-align: right;}
+/* end blognav component*/
+/* 	topbar component
+	dom structure:
+	.topbar
+		a...
+*/
+.topbar{
+	position: fixed;
+	top:0;left:0;
+	font-size: 1.2rem;
+
+	display: flex;
+	justify-content: center;
+
+	min-height:2em;
+	max-height:10vw;
+
+	width: 100%;
+
+	background-color:#422;
+	z-index:10;
+}
+
+.topbar a{padding-top: .5em;}
+.topbar a:link,.topbar a:visited{color:#2AF;}
+.topbar a:hover {background-color: #FC3; color:#FFF;}
+.topbar a:active{background-color: #2AF; color:#FFF;}
+
+.topbar+*{margin-top:3em;}
+/* end topbar component*/
+
+html{
+	font-size:calc(1.8rem - .1vw);
+}
+h1{font-size: 1.7em;}
+
+.blog{ list-style-type: none;}
+.blog>*{
+	width: 50ch;
+	max-width: 95%;
+}
+.blog>*+*{
+	border-top: 1ch double #BBB; 
+}
+
+article{
+	width: 70ch;
+	max-width: 95%;
+}
+article > h1{text-align: center;}
+article a:focus{ border:0; outline:#2AF solid .1ch;}
+
+.subtle{color:#877;}
+
+time{
+	font-size: 0.8em;
+	color:#D54;
+}
+header{
+	position: relative;
+
+	width:100%;
+	height:10em;
+	padding:1em;
+
+	background-color:#BBB;
+}
+header>h1{
+	position: absolute; 
+	bottom:0;
+	background-color:#DDD;
+}
+header>h1::after{
+	content: " ";
+	position:absolute;
+
+	left:0; right:0;
+
+	bottom:.1ch;
+	border-bottom:.2ch double #DDD;
+}
+
+
+/*code stuff*/
+code{
+	background-color:#645; 
+	color:#DDD;
+	padding: 0 0.2ch;
+}
+pre{
+	overflow-x: auto;
+	position:relative;
+}
+pre::before{
+	content:attr(lang);
+	position: absolute;
+	top:0; right:2ch;
+
+	font-size: 0.6rem;
+
+	color:#2AF;
+	background-color: #422;
+	border: .4ch solid #2AF;
+	border-bottom: 0;
+	padding:0 .4ch;
+
+
+	z-index: 1;
+}
+pre>code{
+	display: block;
+	border-top: 0.8ch double #2AF;
+	background-color: #422;
+	color:#FFF;
+
+	padding:0.5em;
+
+	font-size: 0.75rem;
+	line-height: 1.2em;
+}
+pre>code span[type="comment"]{
+	font-style:italic;
+	color:#877;
+}
+pre>code span[type="fun"]{
+	font-style:italic;
+	color:#FC3;
+}
+
+/*pretty stuff*/
+hr{
+	width:40ch;
+	max-width: 90%;
+
+	border:0;
+	border-top:0.1em dashed #BBB;
+
+	text-align: center;
+}
+hr::before{
+	position: relative;
+	top:-1.2ch;
+
+	content: "0";
+	color:#BBB;
+}
