@@ -6,7 +6,7 @@ img{
 	width:auto;
 	height:100%;
 }
-
+ul{padding-inline-start: 0;}
 html{
 	font-family: sans-serif;
 	font-size: 1.25rem;
@@ -18,9 +18,10 @@ html{
 	--primyellow:#FB4;
 	--primred:#E46;
 
-	--gray-1:#111;
-	--gray-2:#333;
-	--gray-3:#444;
+	--gray-1:#111;  
+	--gray-2:#333;	--gray-2-aero:rgba(54,54,54,0.6);
+	--gray-3:#444; 	--gray-3-aero:rgba(68,68,68,0.8);
+	--gray-4:#777;
 	--gray-7:#AAA;
 	--gray-8:#CCC;
 	--gray-9:#EEE;
@@ -46,9 +47,13 @@ h4, .h4{font-size: var(--scale-4)}
 h5, .h5{font-size: var(--scale-5)}
 h6, .h6{font-size: var(--scale-6)}
 
-a:link{			color:var(--gray-8);}
+a:link{			color:var(--gray-4);}
 a:visited{		color:var(--gray-7);}
-a:hover,a:focus{color:var(--gray-9);}
+a:hover,a:focus{color:var(--gray-8);}
+
+.light a:link{			color:var(--gray-8);}
+.light a:visited{		color:var(--gray-7);}
+.light a:hover,a:focus{	color:var(--gray-9);}
 
 header{
 	display: flex;
@@ -65,7 +70,6 @@ header object{
 }
 header div{margin-left: 5ch;margin-right: 5ch;}
 header ul{
-	padding-inline-start: 0;
 	list-style-position: inside;
 }
 header li{
@@ -168,18 +172,31 @@ section h2::selection{background-color: var(--gray-9)}
 	border-radius: 0;
 	transition: .2s ease-out;
 }
+.pattern{
+	stroke:var(--gray-2);
+}
+footer{
+	padding:3ch 0;
+	background: 
+		linear-gradient(var(--gray-3) 40%,var(--gray-3-aero)) top / 100% scroll,
+		url("pattern.svg") top / 6ch fixed,
+		var(--gray-2);
+	display: flex;
+	justify-content: space-around;
+}
+footer ul{
+	background-color: var(--gray-2);
+	list-style-type: none;
+	padding: 2ch 2vw;
+}
 
 @media (orientation:portrait) {
 	header{	flex-direction: column;	}
-
+	footer{	flex-direction: column;	}
 	.toolbar{	display: none;	}
 }
 @media (prefers-reduced-motion:reduce){
 	section div a{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
 		width: 90%;
 		border-radius: 0;
 	}

@@ -20,7 +20,7 @@
 			</ul>
 		</div>
 	</header>
-	<nav class="h6 text-center toolbar">
+	<nav class="h6 text-center toolbar light">
 		<div>
 			<a music href="https://soundcloud.com/ezip">&nbsp;music&nbsp;</a>
 			<a music href="https://spwv.bandcamp.com/">&nbsp;albums&nbsp;</a>
@@ -229,18 +229,28 @@
 			</div>
 		</section>
 	</main>
-	<footer>
-		<a music href="https://soundcloud.com/ezip">music</a>
-		<a music href="https://spwv.bandcamp.com/">albums</a>
-		<a pixel href="http://pixeljoint.com/p/48336.htm">pixel art</a>
-		<a digital href="https://www.deviantart.com/loni-art">all art</a>
-		<a digital href="100years/index.html">100years</a>
-		<a digital href="https://twitter.com/loni_art">twitter</a>
-		<a href="blog/index.html">blog</a>		
-		<a href="friends.html">friends</a>	
-		<a href="https://discordapp.com/invite/mnADs4z">chat</a>
-		<a href="#top">back to top</a><br>
-		<span> design by Loni - 2019</span>
+	<footer class="h6">
+		<ul>
+			<li><a music href="https://soundcloud.com/ezip">soundcloud</a></li>
+			<li><a music href="https://spwv.bandcamp.com/">bandcamp</a></li>
+		</ul>
+		<ul>
+			<li><a pixel href="http://pixeljoint.com/p/48336.htm">pixeljoint</a></li>
+			<li><a digital href="https://www.deviantart.com/loni-art">deviantart</a></li>
+			<li><a digital href="100years/index.html">100years</a></li>
+			<li><a digital href="https://twitter.com/loni_art">twitter</a></li>
+		</ul>
+		<ul>
+			<li><a href="blog/index.html">blog</a></li>
+			<li><a href="friends.html">friends</a></li>
+			<li><a href="https://discordapp.com/invite/mnADs4z">discord</a></li>
+			<li><a href="pages/timewaster/index.html">time waster</a></li>
+			<li><a href="pages/jubk/cukiclicker/index.html">cuki clicker</a></li>
+		</ul>
+		<ul>
+			<li><a href="#top">back to top</a></li>
+			<li><span> design by Loni - 2019</span></li>
+		</ul>
 	</footer>
 	<script type="text/javascript">
 		//array.from is needed to turn the NodeList into an Array to map from
@@ -268,7 +278,6 @@
 				if(checkbox.getAttribute('checked')==='false'){
 					event.preventDefault();
 					checkbox.setAttribute('checked',true);
-					return false;
 				}else return true;
 				});
 		}
