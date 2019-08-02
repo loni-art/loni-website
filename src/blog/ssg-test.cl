@@ -2,7 +2,6 @@
 
 (defun set-path (newpath) 
 		(setq *curpath* newpath)
-		(format t "~a~%~%" *curpath*)
 	)
 
 (defun print-file (file)

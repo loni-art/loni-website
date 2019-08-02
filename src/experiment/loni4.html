@@ -6,6 +6,7 @@
 	<title>Loni ART</title>
 	<!--<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">-->
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
 </head>
 <body>
 	<header>
@@ -20,7 +21,7 @@
 			</ul>
 		</div>
 	</header>
-	<nav class="h6 text-center toolbar light">
+	<nav class="h6 text-center toolbar dark">
 		<div>
 			<a music href="#">&nbsp;home&nbsp;</a>
 			<a music href="https://soundcloud.com/ezip">&nbsp;music&nbsp;</a>
@@ -37,10 +38,10 @@
 			<a href="https://discordapp.com/invite/mnADs4z">&nbsp;chat&nbsp;</a>
 		</div>
 	</nav>
-	<main class="text-center">
+	<main class="text-center nopad">
 		<section id="digital" class="flow">
 			<h2>digital art</h2>
-			<hr>
+			<hr dark>
 			<div class="gallery">
 				<img width="300px"	src="../img/digital/190419.jpg" alt="man of texures">
 				<img height="300px"	src="../img/digital/stairs.jpg"	alt="stairs of hotel 35">
@@ -58,7 +59,7 @@
 		</section>
 		<section id="pixel">
 			<h2>pixel art</h2>
-			<hr>
+			<hr dark>
 			<div class="gallery" class="flow">
 				<img width="300px"	src="../img/pixel/florist.png"	alt="a florist holding flowers">
 				<img width="324px"	src="../img/pixel/goat.gif" 	alt="a goatgirl idling">
@@ -83,7 +84,7 @@
 		</section>
 		<section id="music">
 			<h2>music</h2>
-			<hr>
+			<hr dark>
 			<div class="gallery" class="flow">
 				<a href="https://coolmixtapes.bandcamp.com/album/little-concept-space">
 					<img width="300px"	src="../img/music/lcs.jpg"		alt="little concept space">	</a>
@@ -102,7 +103,7 @@
 			</div>
 		</section>
 	</main>
-	<footer class="h6">
+	<footer class="dark">
 		<ul>
 			<li><a music href="https://soundcloud.com/ezip">soundcloud</a></li>
 			<li><a music href="https://spwv.bandcamp.com/">bandcamp</a></li>
@@ -125,56 +126,6 @@
 			<li><span> design by Loni - 2019</span></li>
 		</ul>
 	</footer>
-	<script type="text/javascript">
-		//array.from is needed to turn the NodeList into an Array to map from
-		let map_elements = (elementArray,fn)=>Array.from(elementArray).map(fn);
-
-		let create_toggle = (id)=>{
-			let section = document.getElementById(id);
-			let gallery = section.getElementsByTagName('div')[0];
-			let images = gallery.children;
-			let frozenImages = new Array(0)
-			map_elements(images,(image,index,images)=>(frozenImages[index]=image.cloneNode(true)));
-			gallery.innerHTML = ' '; //i dont delete the nodes in the map because it causes too much reflow
-			let galleryCopy = gallery.cloneNode();
-			frozenImages.map((image,i)=>{
-				image.setAttribute('index',i)
-
-				input = document.createElement('input');
-				input.setAttribute('type','checkbox');
-				input.setAttribute('checked',false);
-				galleryCopy.appendChild(input);
-				let label = document.createElement('label');
-				label.appendChild(image);
-				galleryCopy.appendChild(label)
-			})
-			section.replaceChild(galleryCopy,gallery);
-		}
-		let setup_toggle = (id)=>{
-			let section = document.getElementById(id);
-			let labels = section.getElementsByTagName('label');
-			//the last child of the section should be always the gallery div
-			let gallery = section.getElementsByClassName('gallery')[0];
-			gallery.addEventListener('click',function(event){	
-				let index = event.target.getAttribute('index');
-				//a little math to get the associated <input> element, both index and children are 0 indexed, and the inputs come first,
-				//so we have just to skip the label element
-				let checkbox = this.children[2*index];
-				//the attributes are strings, so i have to do this to toggle AAAAAAAAAAAAAAA
-				let isChecked = (checkbox.getAttribute('checked')==='false')?false:true;
-				checkbox.setAttribute('checked',!isChecked) 
-			});
-		}
-		create_toggle('digital');
-		create_toggle('pixel');
-		create_toggle('music');
-		window.setTimeout(()=>{
-			images=document.getElementsByTagName('label');
-			map_elements(images,(image)=>image.setAttribute('loaded',true))
-		},1);
-		setup_toggle('digital');
-		setup_toggle('pixel');
-		setup_toggle('music');
-	</script>
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
