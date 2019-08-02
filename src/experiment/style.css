@@ -172,6 +172,17 @@ section h2::selection{background-color: var(--gray-9)}
 	border-radius: 0;
 	transition: .2s ease-out;
 }
+.gallery input[checked="true"] + label{
+	overflow-x: auto;
+}
+.gallery > img{
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	max-height: 100%;
+	border: var(--gray-9) solid 2ch;
+	overflow-x: auto;
+}
 .pattern{
 	stroke:var(--gray-2);
 }
