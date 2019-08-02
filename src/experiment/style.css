@@ -201,7 +201,21 @@ footer ul{
 	list-style-type: none;
 	padding: 2ch 2vw;
 }
+hr{
+	max-width: 90%;
 
+	border:0;
+	border-top:.5ch dotted var(--gray-9);
+	color:var(--gray-9);
+	
+	text-align: center;
+}
+hr::before{
+	position: relative;
+	top:-1.45ch;
+	font-size: var(--scale-5);
+	content: "0";
+}
 @media (orientation:portrait) {
 	header{	flex-direction: column;	}
 	footer{	flex-direction: column;	}
