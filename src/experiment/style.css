@@ -165,6 +165,7 @@ section h2::selection{background-color: var(--gray-9)}
 	overflow:hidden;
 	border-radius: 20ch;
 	border: var(--gray-9) solid 2ch;
+	cursor: pointer;
 }
 .gallery label[loaded]{transition: .5s;}
 .gallery input[checked="true"] + label,.gallery label:hover{
