@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="..\style.css">
+	<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+	<title>loniblog - get on it</title>
+</head>
+<body>
+	<iframe src="includes/header.html" onload="console.log(this);this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+	<main class="blog flow h7">
+		<article>
+			<h1>get on it</h1>
+			<hr>
+			<p>
+				Hey everyone, ive successfully managed to set up SBCL for sublimetext! that means that the parsejourney can begin!!<br>
+				the current code i have is this, which just prints files, but this is just for testing<br>
+				
+				<pre lang="Common Lisp">
+					<code>
+(defvar *curpath* nil)
+
+(defun set-path (newpath) 
+		(setq *curpath* newpath)
+		(format t "~a~%~%" *curpath*)
+	)
+
+(defun print-file (file)
+	(let ((in (open (concatenate 'string *curpath* "/" file) )))
+		(when in
+			(loop for line = (read-line in nil)
+				 while line do (format t "~a~%" line))
+			(close in)))
+	)
+;opens a .blog file with parameter "name"
+(defun open-blog (name) 
+	(print-file (concatenate 'string name ".blog"))
+	)
+(set-path "loni3/src/blog")
+(open-blog "210519")</code></pre>
+				also, i have some js here to provide syntax highlighting, not sure if i want to add it as a separate file just yet, since a friend pointed out i could set up a 
+				<a href="http://wiki.c2.com/?LispMacro">reader macro</a>, because you can make macros for anything
+			</p>
+			<time>posted june 5, 2019</time>
+		</article>
+		<nav class="blog-nav row-flow">
+			<div>
+				<span>older</span><br>
+				<a href="020619.html">tornado mind</a>
+			</div>
+			<div>
+				<span>newer</span><br>
+				<a href="150619.html">100 years</a>
+			</div>
+		</nav>
+	</main>
+	<iframe src="includes/footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+	<script>
+		let code = document.getElementsByTagName('pre');
+		let match_fun = /\(([^\s|\)|\(]+)/g
+		let match_comment = /\;([^\n]+)/g 
+		console.log(code)
+		for (var i = code.length - 1; i >= 0; i--) {
+			console.log()
+			code[i].innerHTML = code[i].innerHTML.replace(match_fun,"(<span type=\"fun\">$1</span>")
+			code[i].innerHTML = code[i].innerHTML.replace(match_comment,"<span type=\"comment\">;$1</span>")
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="..\style.css">
+	<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+	<title>loniblog - it is done</title>
+</head>
+<body>
+	<iframe src="includes/header.html" onload="console.log(this);this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+	<main class="blog flow h7">
+		<article>
+			<h1>it is done</h1>
+			<hr>
+			<p>
+				hey everyone, loni here<br>
+				i finished making the website for 100years<br>
+				it is <a href="..\100years\index.html">here</a><br>
+				as it is just an art project and not a portfolio like the main page, i took some artistic liberties with fonts and such<br>
+				hope you like it, and thank you for visiting
+			</p>
+			<time>posted july 8, 2019</time>
+		</article>
+		<nav class="blog-nav row-flow">
+			<div>
+				<span>older</span><br>
+				<a href="150619.html">100years</a>
+			</div>
+			<div>
+				<span>newer</span><br>
+				<a href="100719.html">Making markup easier</a>
+			</div>
+		</nav>
+	</main>
+	<iframe src="includes/footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+</body>
+</html>

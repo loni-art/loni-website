@@ -2,8 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	
+	<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../style.css">
 	<title>loniblog - Making Markup Easier</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
 			<a href="https://discordapp.com/invite/mnADs4z">&nbsp;chat&nbsp;</a>
 		</div>
 	</nav>
-	<main class="blog flow">
+	<main class="blog flow h7">
 		<article>
 			<h1>Making markup easier</h1>
 			<hr>
@@ -47,8 +47,7 @@
 				Well, begin looking at your website, think about what each part of it "means", and look it up on <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">the element list!</a>, then, you can start changing your divs for more semantic elements, and when youre done you can reorganize your css! however, this does not mean "change all your divs by something else", since divs still have the semantic meaning of <em>not</em> having meaning, which still has it uses, like the navigation at the bottom of this blog!
 			</p>
 				<pre lang="HTML">
-					<code>
-&lt;nav class=&quot;navs row-flow&quot;&gt;
+					<code>&lt;nav class=&quot;navs row-flow&quot;&gt;
 	&lt;div&gt;
 		&lt;span&gt;older&lt;/span&gt;&lt;br&gt;
 		&lt;a&gt;older blog post&lt;/a&gt;
@@ -61,7 +60,7 @@
 			<p>
 				here we have an element which is only being used to contain the other elements (for styling purposes), so in terms of content, it doesnt exist, that's why a div was the correct choice!
 			</p>
-			<h3>Further reading</h3>
+			<h5>Further reading</h5>
 			<p>
 				<a href="https://css-tricks.com/why-how-and-when-to-use-semantic-html-and-aria/">Why, How, and When to Use Semantic HTML and ARIA by Adam Silver</a>
 			</p>
@@ -78,7 +77,7 @@
 			</div>
 		</nav>
 	</main>
-	<footer>
+	<footer class="dark h7">
 		<ul>
 			<li><a music href="https://soundcloud.com/ezip">soundcloud</a></li>
 			<li><a music href="https://spwv.bandcamp.com/">bandcamp</a></li>
