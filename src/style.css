@@ -1,5 +1,5 @@
 *{box-sizing:border-box;}
-
+iframe{border:none;}
 .flow > *+*{margin-top: 1.5rem;}
 .row-flow> *+*{margin-left: 1.5rem;}
 .text-center{text-align: center;}
@@ -239,13 +239,18 @@ hr::before{
 	border-top: 1ch dotted var(--gray-8); 
 	padding-top: 1.2em;
 }
+.blog header>h1{
+	color:var(--gray-1);
+	text-shadow: var(--gray-5) .1ch .1ch;
+}
 li>h4{margin:1ch;}
 
 pre>code{
-	display: inline-block;
+	display:inline-block;
 	background-color: var(--gray-2);
 	color: var(--gray-8);
 	padding: 1.5ch;
+	min-width: 100%;
 }
 pre{
 	position: relative;
