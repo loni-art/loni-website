@@ -1,0 +1,72 @@
+<html><head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css?family=Abel&amp;display=swap" rel="stylesheet">
+    <title>loniblog - modular HTML</title>
+</head>
+<body>
+    <nav class="h6 text-center toolbar dark">
+    <div>
+        <a music="" href="loni4.html">&nbsp;home&nbsp;</a>
+        <a music="" href="https://soundcloud.com/ezip">&nbsp;music&nbsp;</a>
+        <a music="" href="https://spwv.bandcamp.com/">&nbsp;albums&nbsp;</a>
+    </div>
+    <div>
+        <a pixel="" href="http://pixeljoint.com/p/48336.htm">&nbsp;pixel art&nbsp;</a>
+        <a digital="" href="100years/index.html">&nbsp;100years&nbsp;</a>
+        <a digital="" href="https://twitter.com/loni_art">&nbsp;twitter&nbsp;</a>
+    </div>
+    <div>
+        <a href="blog/index.html">&nbsp;blog&nbsp;</a>      
+        <a href="friends.html">&nbsp;friends&nbsp;</a>  
+        <a href="https://discordapp.com/invite/mnADs4z">&nbsp;chat&nbsp;</a>
+    </div>
+</nav>
+    <main class="blog flow h7">
+        <article>
+            <h1>modular HTML</h1>
+            <hr>
+            <p>
+                hello! a while ago i found <a href="https://www.filamentgroup.com/lab/html-includes/">this amazing article by Scott Jehl</a> which is incredibly useful for making sites a little bit easier to build over here in the land of no server side, and it all relies on this small &amp; genius snippet of html<br>
+                </p><pre lang="HTML"><code>
+&lt;iframe src="includethis.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"&gt;&lt;/iframe&gt;</code></pre>
+                the way it works, is that it loads the iframe, and when it loads, it looks at the root of the iframe'd page, copies it, puts it before the iframe in the current page, and then deletes the iframe, leaving no trace that it was there in the first place, this is incredibly useful for reusing parts of the website that you dont want to copy paste over and over without having to handle iframe elements, its also pretty network-friendly, since modern browsers will remember the contents of those iframes and wont redownload them after the first time, making page loads that <em>tiny</em> bit faster, also, the only way it doesnt run is if you completely disable javascript, since it's inline and in an event handler.<br>
+                However, there is a small caveat, that this wont work with local files because of security reasons, but setting up a local server to just load your things is very easy when you have python installed, <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server">you can just follow this tiny tutorial!</a>
+            <p></p>
+            <time>posted november 14, 2019</time>
+        </article>
+        <nav class="blog-nav row-flow">
+            <div>
+                <span>older</span><br>
+                <a href="110719.html">thanks wave</a>
+            </div>
+            <div>
+                <span>newer</span><br>
+            </div>
+        </nav>
+    </main>
+    <footer class="dark h7">
+    <ul>
+        <li><a music="" href="https://soundcloud.com/ezip">soundcloud</a></li>
+        <li><a music="" href="https://spwv.bandcamp.com/">bandcamp</a></li>
+    </ul>
+    <ul>
+        <li><a pixel="" href="http://pixeljoint.com/p/48336.htm">pixeljoint</a></li>
+        <li><a digital="" href="https://www.deviantart.com/loni-art">deviantart</a></li>
+        <li><a digital="" href="100years/index.html">100years</a></li>
+        <li><a digital="" href="https://twitter.com/loni_art">twitter</a></li>
+    </ul>
+    <ul>
+        <li><a href="blog/index.html">blog</a></li>
+        <li><a href="friends.html">friends</a></li>
+        <li><a href="https://discordapp.com/invite/mnADs4z">discord</a></li>
+        <li><a href="pages/timewaster/index.html">time waster</a></li>
+        <li><a href="pages/jubk/cukiclicker/index.html">cuki clicker</a></li>
+    </ul>
+    <ul>
+        <li><a href="#top">back to top</a></li>
+        <li><span> design by Loni - 2019</span></li>
+    </ul>
+</footer>
+
+</body></html>

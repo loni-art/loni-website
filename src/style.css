@@ -242,7 +242,7 @@ hr::before{
 li>h4{margin:1ch;}
 
 pre>code{
-	display: block;
+	display: inline-block;
 	background-color: var(--gray-2);
 	color: var(--gray-8);
 	padding: 1.5ch;
